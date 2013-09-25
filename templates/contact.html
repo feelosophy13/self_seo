@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block nav_menu %}
+              <li><a href="/">Home</a></li>
+              <li><a href="/about/">About</a></li>
+              <li class="dropdown">
+                <a href="/tools/" class="dropdown-toggle" data-toggle="dropdown">Tools <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/tools/site_auditor/submit/">Site Auditor</a></li>
+                  <li><a href="/tools/disavow_generator/submit/">Disavow Generator</a></li>
+                </ul>
+              </li>
+              <li class="active"><a href="/contact/">Contact</a></li>
+{% endblock %}
+
+{% block panel %}
+        <h1>Questions?</h1>
+        <p>We are devoted to providing the best web services. Please provide us with your feedback. If you have questions, concerns, or suggestions, please let us know by submitting the form below.</p>
+        <hr />
+{% endblock %}
+
+{% block content %}
+		<h2>Contact Us</h2>
+        {% if form.errors %}
+        	<p style="color: red;">
+        		Please correct the error{{ form.errors|pluralize }} below.
+        	</p>
+        {% endif %}
+        
+        <form action="" method="post">
+        	{{ form.as_p }}
+        	{% csrf_token %}
+        	<input type="submit" value="Submit">
+        </form>
+{% endblock %}

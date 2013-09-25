@@ -1,0 +1,67 @@
+{% extends "account/base.html" %}
+
+{% block nav_menu %}
+              <li><a href="/">Home</a></li>
+              <li><a href="/about/">About</a></li>
+              <li class="dropdown">
+                <a href="/tools/" class="dropdown-toggle" data-toggle="dropdown">Tools <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/tools/site_auditor/submit/">Site Auditor</a></li>
+                  <li><a href="/tools/disavow_generator/submit/">Disavow Generator</a></li>
+                </ul>
+              </li>
+              {% if not user.is_authenticated %}<li><a href="/registration/">Register</a></li>{% endif %}          
+              <li><a href="/contact/">Contact</a></li>
+              {% if user.is_authenticated %}<li><a href="/logout/">Logout</a></li>{% else %}<li><a href="/login/">Login</a></li>{% endif %}
+{% endblock %}
+
+{% block panel %}
+      <div class="hero-unit">
+        <h1>Hello, world!</h1>
+        <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+        <p><a href="#" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+	  </div>
+{% endblock %}
+
+{% load url from future %}
+{% load i18n %}
+
+
+{% block head_title %}{% trans "Signup" %}{% endblock %}
+
+{% block content2 %}
+<h1>{% trans "Sign Up" %}</h1>
+
+<p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+
+<div id="">
+ <div id="openid-logins">
+      
+      <a href="/accounts/facebook/login/?process=login" id="connect-facebook">Connect with Facebook</a>
+      {# <a href="#" id="google-login">Login with Google</a> #}
+      <div class="clear"></div>
+    </div>
+<form class="submit_form" id="signup_form" method="post" action="{% url 'account_signup' %}">
+  {% csrf_token %}
+  <fieldset class="inlineLabels">
+    {{ form }}
+    {% if redirect_field_value %}
+    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+    {% endif %}
+    <div class="buttonHolder">
+      <button  class="btn btn-info btn-large " id="btn-signup" type="submit">{% trans "Sign Up" %} &raquo;</button>
+    </div>
+    {% comment %}
+    <ul class="socialaccount_providers">
+    {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+    </ul> 
+    {% endcomment %}
+  
+  </fieldset>
+
+
+</form>
+</div>
+{% endblock %}
+
+

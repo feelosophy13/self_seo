@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block nav_menu %}
+              <li><a href="/">Home</a></li>
+              <li class="active"><a href="/about/">About</a></li>
+              <li class="dropdown">
+                <a href="/tools/" class="dropdown-toggle" data-toggle="dropdown">Tools <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/tools/site_auditor/submit/">Site Auditor</a></li>
+                  <li><a href="/tools/disavow_generator/submit/">Disavow Generator</a></li>
+                </ul>
+              </li>
+              <li><a href="/contact/">Contact</a></li>
+{% endblock %}
+
+{% block panel %}
+        <h1>About Us</h1>
+        <hr />
+{% endblock %}
+
+{% block content %}
+      <div class="row">
+        <div class="span4">
+          <h3>About Howard</h3>
+          <img src="https://scontent-b-pao.xx.fbcdn.net/hphotos-prn1/318327_2359538382156_1961326799_n.jpg" class="img-polaroid" height="300" width="300">
+          <p></p>
+          <p>Howard is an avid </p>
+        </div>
+        <div class="span8">
+          <h3>Story behind Nexus Web Tools</h3>
+          <p>Before Howard became a web developer, he worked as a SEO specialist at a local marketing company.<p>
+          <p>As any computer programmer would, he always asked himself, "How can we do things better, faster, and easier?" He could not believe the level of tediousness some of these SEO work entailed. A firm believer of automation, Howard started writing script to automate some of his SEO work.</p>
+          <p>His first script was that downloaded hundreds of pictures when he was asked to manually download them from Flickr. His second script was a bit more complex. Using a spreadsheet data of thousands of potentially spammy incoming links from various other websites that were harming the SEO value of our client site, he wrote a script that automatically generated list of untrustworthy sites (disavow list) that could be submitted to Google. (<a href="https://support.google.com/webmasters/answer/2648487" target="_blank">More about disavowing links here</a>.)  </p>
+          <p>However, there was a problem. While he could benefit from these scripts that he wrote for himself, other people who weren't as technical and didn't know how to run scripts via command line could not benefit from these amazing scripts. That when he decided that he would create a web application</p>
+       </div>
+      </div>
+{% endblock %}

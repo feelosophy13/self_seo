@@ -1,0 +1,6 @@
+from django.conf.urls import patterns, include, url 
+
+urlpatterns = patterns('',
+    url(r'^site_audit/submit/$', 'site_auditor.views.linkchecks_submit'),
+    url(r'^site_audit/result/$', 'site_auditor.views.linkchecks_result'),   
+)
