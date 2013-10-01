@@ -5,6 +5,7 @@ from forms import SiteAuditForm
 from crawl import *
 from django.contrib.auth.decorators import login_required
 
+
 @login_required
 def submit_page(request):
     if request.GET:
@@ -20,6 +21,7 @@ def submit_page(request):
     context['form'] = form
     return render_to_response('submit.html', context)
 
+
 @login_required
 def result_page(request):
     if request.GET:
@@ -28,7 +30,6 @@ def result_page(request):
         print 'POST POST'
     else:
         print 'YA YA'
-           
 #    print request.GET['url']
 #    crawl(request.GET['url'])
     return render_to_response('result.html')

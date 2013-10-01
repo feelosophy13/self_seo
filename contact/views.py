@@ -4,6 +4,7 @@ from contact.forms import ContactForm
 from django.http import HttpResponseRedirect
 from django.core.mail import send_mail
 
+
 def contact_page(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
@@ -22,7 +23,8 @@ def contact_page(request):
         )
         context = {'form': form}
         return render(request, 'contact.html', context)
-        
+
+
 def thanks_page(request):
     return render_to_responsel('thanks.html')
 
